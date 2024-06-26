@@ -7,6 +7,10 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages); sapply(list.of.packages,require,character.only=TRUE, quietly = TRUE)
 rm(list.of.packages, new.packages)
 
+library(rJava)
+setwd('/Users/robs/r-lang/scorify')
+options(shiny.maxRequestSize = 30 * 1024 ^ 2) 
+
 # Read in Folder of Custom Functions --------------------------------------
 for (i in list.files('./src/')) {
   source(paste0('./src/',i))
